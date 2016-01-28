@@ -13,6 +13,14 @@
     border-radius: 0px;
 }
 
+header .container {
+    padding-bottom: 175px;
+}
+
+.submit_btn{
+    float: right;
+}
+
 #contact {
     padding-top:100px ;
     padding-bottom:50px;

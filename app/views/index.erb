@@ -69,43 +69,43 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form method="post" action="/post/send">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Recipient</label>
-                                <input type="text" class="form-control" placeholder="Recipient" id="recipient" required data-validation-required-message="Please enter your recipient name.">
+                                <input type="text" class="form-control" placeholder="Recipient" name="recipient" required data-validation-required-message="Please enter your recipient name.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Recipient Email Address</label>
-                                <input type="email" class="form-control" placeholder="Recipient Email Address" id="recipient_email" required data-validation-required-message="Please enter your recipients email address.">
+                                <input type="email" class="form-control" placeholder="Recipient Email Address" name="recipient_email" required data-validation-required-message="Please enter your recipients email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Recipient Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" name="recipient_phone" required data-validation-required-message="Please enter your phone number.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Signed By</label>
-                                <input type="text" class="form-control" placeholder="Signed By" id="signed_by" required data-validation-required-message="Please enter your signature.">
-                                <p class="help-block text-danger"></p>
+                                <input type="text" class="form-control" placeholder="Signed By" name="signed_by" required data-validation-required-message="Please enter your signature.">
+                                <p class="help-block text-danger"></p> 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                            <br>
-                                <label><input type="checkbox" name="checkbox" value="value"> Make it spicy!</label>
-                            </div>
-                        </div>
-
-
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+                              <label><input type="checkbox" name="checkbox"> Make it spicy!</label>
+                              <div class="submit_btn">
                                 <button type="submit" class="btn btn-success btn-lg">Send</button>
+                              </div>
                             </div>
                         </div>
                     </form>
@@ -120,7 +120,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Robo <SPAN></SPAN>ice 2016
+                        Copyright &copy; Robo Spice 2016
                     </div>
                 </div>
             </div>
