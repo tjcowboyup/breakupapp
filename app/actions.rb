@@ -9,33 +9,34 @@ end
 
 
 post '/post/send' do
-  puts params[:recipient]
-  puts params[:recipient_email]
-  puts params[:recipient_phone]
-  puts params[:signed_by]
-  puts params[:checkbox] == "on"
-
-  @intro = Message.where(spice: (params[:checkbox] == "on"), section: "Intro").order("RANDOM()").first
-  @body = Message.where(spice: (params[:checkbox] == "on"), section: "Body").order("RANDOM()").first
-  @end = Message.where(spice: (params[:checkbox] == "on"), section: "Ending").order("RANDOM()").first
-
-  puts @intro.inspect
-  puts @body.inspect
-  puts @end.inspect
+  @intro = Message.intro_generator(params[:checkbox] == "on")
+  @body = Message.body_generator(params[:checkbox] == "on")
+  @ending = Message.ending_generator(params[:checkbox] == "on")
 
   @sent_message = SentMessage.new(
     intro:      @intro.id,
     body:       @body.id,
-    ending:     @end.id
+    ending:     @ending.id
     )
 
-  # @sent_message.save
+  @sent_message.save
 
-  #@message = message_maker(params[:recipient], params[:signed_by], @intro, @body, @end)
-  #send_sms(params[:recipient_phone], @message)
-
-  #send email method here!
-
+  @message = Message.message_maker(params[:recipient], params[:signed_by], @intro.text, @body.text, @ending.text)
+  puts @message.inspect
+  
+  Message.send_sms(params[:recipient_phone], @message)
 
   redirect '/post'
 end
+
+
+
+  # puts params[:recipient]
+  # puts params[:recipient_email]
+  # puts params[:recipient_phone]
+  # puts params[:signed_by]
+  # puts params[:checkbox] == "on"
+
+  # puts @intro.inspect
+  # puts @body.inspect
+  # puts @ending.inspect
