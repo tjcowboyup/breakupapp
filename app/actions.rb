@@ -21,11 +21,11 @@ post '/post/send' do
 
   @sent_message.save
 
-  @message = Message.message_maker(params[:recipient_email], params[:signed_by], @intro.text, @body.text, @ending.text)
+  @message = Message.message_maker(params[:recipient], params[:signed_by], @intro.text, @body.text, @ending.text)
   puts @message.inspect
   
   Message.send_sms(params[:recipient_phone], @message)
-  Message.send_mail(params[:recipient], params[:signed_by], @message)
+  Message.send_mail(params[:recipient_email], params[:signed_by], @message)
 
   redirect '/post'
 end
