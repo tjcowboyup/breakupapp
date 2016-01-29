@@ -53,7 +53,7 @@ class Message < ActiveRecord::Base
   m.from = sender.to_s 
   m.subject = "It's not you..."
   m.text = message.to_s
-  m.html = <h2>message.to_s</h2>
+  m.html = <h2>message</h2>
 
  end
 
