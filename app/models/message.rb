@@ -49,7 +49,7 @@ class Message < ActiveRecord::Base
 
   email = SendGrid::Mail.new do |m|
    m.to = recipient.to_s
-   m.from = RoboSpice@robospice.com
+   m.from = "RoboSpice@robospice.com"
    m.subject = "It's not you..."
    m.text = message.to_s
    # m.html = <h2>message</h2>
