@@ -25,3 +25,16 @@ header .container {
     padding-top:100px ;
     padding-bottom:50px;
 }
+
+#portfolio .portfolio-item {
+    height: 175px;
+}
+
+.testimonials{
+  margin-top: 50px;
+}
+
+#portfolio {
+  padding-bottom: 0px;
+  padding-top: 150px;
+}
