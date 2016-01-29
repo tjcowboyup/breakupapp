@@ -49,11 +49,11 @@ class Message < ActiveRecord::Base
  client = SendGrid::Client.new(api_user: sg_username, api_key: sg_password)
 
  email = SendGrid::Mail.new do |m|
-  m.to = recipient
-  m.from = sender
+  m.to = recipient.to_s
+  m.from = sender.to_s 
   m.subject = "It's not you..."
-  m.text = message
-  m.html = <h2>message</h2>
+  m.text = message.to_s
+  m.html = <h2>message.to_s</h2>
 
  end
 
