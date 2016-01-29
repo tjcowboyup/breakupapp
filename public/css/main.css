@@ -26,6 +26,7 @@ header .container {
     padding-bottom:50px;
 }
 
+
 #portfolio .portfolio-item {
     height: 175px;
 }
@@ -37,4 +38,13 @@ header .container {
 #portfolio {
   padding-bottom: 0px;
   padding-top: 150px;
+}
+
+.break-up {
+  padding: 1em;
+  margin: 1em;
+  background-color: transparent;
+  background-image: url("../img/linedpaper.png");
+  font-family: 'Rock Salt', cursive;
+  box-shadow: 3px 4px #65247f;
 }

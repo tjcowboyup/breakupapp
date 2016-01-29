@@ -62,7 +62,7 @@ Message.create(
   );
 
 Message.create(
-    text: "Saying goodbye to you is like saying goodbye to a cancerous tumour",
+    text: "Saying goodbye to you is like saying goodbye to a cancerous tumour.",
     spice: true,
     section: "ending"
   );
