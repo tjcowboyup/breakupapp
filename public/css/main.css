@@ -25,3 +25,12 @@ header .container {
     padding-top:100px ;
     padding-bottom:50px;
 }
+
+.break-up {
+  padding: 1em;
+  margin: 1em;
+  background-color: transparent;
+  background-image: url("../img/linedpaper.png");
+  font-family: 'Rock Salt', cursive;
+  box-shadow: 3px 4px #65247f;
+}
