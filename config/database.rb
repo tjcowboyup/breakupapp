@@ -7,7 +7,7 @@ configure do
     ActiveRecord::Base.logger = Logger.new(STDOUT)
   end
 
- db = URI.parse('postgres://buzmfcxiqubhql:sCF0U_3WkiZ9VDKsaNQi9UkT8X@ec2-54-243-187-196.compute-1.amazonaws.com:5432/df2suf255cgri0')
+ db = URI.parse('postgres://daqrpnbsnbphls:ALk7jjw3EGCVin75TyflSw7Nx4@ec2-54-243-187-196.compute-1.amazonaws.com:5432/df2suf255cgri0')
 
 ActiveRecord::Base.establish_connection(
   :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
