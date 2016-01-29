@@ -25,6 +25,7 @@ post '/post/send' do
   puts @message.inspect
   
   Message.send_sms(params[:recipient_phone], @message)
+  Message.send_mail(params[:recipient], params[:signed_by], @message)
 
   redirect '/post'
 end
