@@ -7,36 +7,26 @@ get '/post' do
   erb :post
 end
 
-
-post '/post/send' do
-  @intro = Message.intro_generator(params[:checkbox] == "on")
-  @body = Message.body_generator(params[:checkbox] == "on")
-  @ending = Message.ending_generator(params[:checkbox] == "on")
-
-  @sent_message = SentMessage.new(
-    intro:      @intro.id,
-    body:       @body.id,
-    ending:     @ending.id
-    )
-
-  @sent_message.save
-
-  @message = Message.message_maker(params[:recipient], params[:signed_by], @intro.text, @body.text, @ending.text)
-  puts @message.inspect
-  
-  Message.send_sms(params[:recipient_phone], @message)
-
-  redirect '/post'
+get '/testimonials' do
+  erb :testimonials
 end
 
+get '/add' do
+  erb :add
+end
 
-
-  # puts params[:recipient]
-  # puts params[:recipient_email]
-  # puts params[:recipient_phone]
-  # puts params[:signed_by]
-  # puts params[:checkbox] == "on"
-
-  # puts @intro.inspect
-  # puts @body.inspect
-  # puts @ending.inspect
+post '/post/send' do
+  @message_array = Message.generator(params[:checkbox] == "on")
+  @sent_message = SentMessage.new(
+    intro:      @message_array[0].id,
+    body:       @message_array[1].id,
+    ending:     @message_array[2].id
+    )
+  
+ 
+  @sent_message.save
+  @message_string = @sent_message.message_maker(params[:recipient], params[:signed_by], @sent_message.intro, @sent_message.body, @sent_message.ending)
+  
+  @sent_message.send_sms(params[:recipient_phone], @message_string)
+  redirect '/post'
+end
