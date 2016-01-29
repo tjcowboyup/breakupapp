@@ -11,6 +11,7 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'twilio-ruby'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'pry'
