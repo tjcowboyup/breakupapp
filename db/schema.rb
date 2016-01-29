@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20160128203425) do
   create_table "sent_messages", force: :cascade do |t|
     t.integer  "intro"
     t.integer  "body"
-    t.integer  "end"
+    t.integer  "ending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "sent_messages", "messages", column: "body"
-  add_foreign_key "sent_messages", "messages", column: "end"
+  add_foreign_key "sent_messages", "messages", column: "ending"
   add_foreign_key "sent_messages", "messages", column: "intro"
 end
