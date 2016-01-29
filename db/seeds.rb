@@ -55,17 +55,17 @@ Message.create(
     section: "ending"
   );
 
-# Message.create(
-#     text: "",
-#     spice: true,
-#     section: "ending"
-#   );
+Message.create(
+    text: "If I never see you again, it'll be too soon.",
+    spice: true,
+    section: "ending"
+  );
 
-# Message.create(
-#     text: "",
-#     spice: true,
-#     section: "ending"
-#   );
+Message.create(
+    text: "Saying goodbye to you is like saying goodbye to a cancerous tumour",
+    spice: true,
+    section: "ending"
+  );
 
 # --Not Spicy--
 # --Intros--
