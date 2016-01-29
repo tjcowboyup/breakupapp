@@ -1,5 +1,6 @@
 require 'twilio-ruby' 
- 
+require 'sendgrid-ruby'
+
 
 class Message < ActiveRecord::Base
   has_many :sent_messages
@@ -34,4 +35,29 @@ class Message < ActiveRecord::Base
     )
     puts message.to
   end
+  
+  def self.send_mail(recipient, sender, message)
+   # SENDGRID CREDENTIALS
+ # Enter in your SendGrid username and 
+ # password below.
+ #===========================================#
+ sg_username = "robospice"
+ sg_password = "breakup2016"
+
+ # CREATE THE MAIL OBJECT
+ #===========================================#
+ client = SendGrid::Client.new(api_user: sg_username, api_key: sg_password)
+
+ email = SendGrid::Mail.new do |m|
+  m.to = recipient
+  m.from = sender
+  m.subject = "It's not you..."
+  m.text = message
+  m.html = <h2>message</h2>
+
+ end
+
+# SEND THE EMAIL
+#===========================================#
+ client.send(email) 
 end
