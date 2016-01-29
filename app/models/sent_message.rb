@@ -8,10 +8,11 @@ class SentMessage < ActiveRecord::Base
   ACCOUNT_SID = 'AC01b6404ed79574caed356c0e13d652ed' 
   AUTH_TOKEN = 'a19da2c5470eea4fa932ae69c57ebb71'
 
-  def message_maker(recipient, sender, intro_id, body_id, ending_id)
-    intro_string = Message.find(intro_id).text
-    body_string = Message.find(body_id).text
-    ending_string = Message.find(ending_id).text
+  def message_maker(recipient, sender)
+    p intro
+    intro_string = Message.find(intro).text
+    body_string = Message.find(body).text
+    ending_string = Message.find(ending).text
 
     "Dear #{recipient} " + "#{intro_string} " + "#{body_string} " + "#{ending_string} " + "from #{sender}."
   end
@@ -57,6 +58,6 @@ class SentMessage < ActiveRecord::Base
   end
 
   def self.recent_messages
-    
+    order('created_at DESC').limit(9)
   end
 end
