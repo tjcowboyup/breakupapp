@@ -6,8 +6,8 @@ class Message < ActiveRecord::Base
 
   def self.generator(spicy)
     @message_array = []
-    @message_array << where(spice: spicy, section: "Intro").order("RANDOM()").first
-    @message_array << where(spice: spicy, section: "Body").order("RANDOM()").first
-    @message_array << where(spice: spicy, section: "Ending").order("RANDOM()").first
+    @message_array << where(spice: spicy, section: "intro").order("RANDOM()").first
+    @message_array << where(spice: spicy, section: "body").order("RANDOM()").first
+    @message_array << where(spice: spicy, section: "ending").order("RANDOM()").first
   end
 end

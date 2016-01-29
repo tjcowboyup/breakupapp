@@ -8,23 +8,31 @@ class SentMessage < ActiveRecord::Base
   ACCOUNT_SID = 'AC01b6404ed79574caed356c0e13d652ed' 
   AUTH_TOKEN = 'a19da2c5470eea4fa932ae69c57ebb71'
 
-  def message_maker(recipient, sender, intro, body, ending)
-    "Dear #{recipient} " + "#{intro} " + "#{body} " + "#{ending} " + "from #{sender}."
+  def message_maker(recipient, sender, intro_id, body_id, ending_id)
+    intro_string = Message.find(intro_id).text
+    body_string = Message.find(body_id).text
+    ending_string = Message.find(ending_id).text
+
+    "Dear #{recipient} " + "#{intro_string} " + "#{body_string} " + "#{ending_string} " + "from #{sender}."
   end
+
 
   def send_sms(phone_number, alert_message) 
     @twilio_number = +12048185591
     @client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
 
-    message = @client.account.messages.create(
-      :from => @twilio_number,
-      :to => phone_number,
-      :body => alert_message
-    )
-    puts message.to
+    unless phone_number.empty?
+      message = @client.account.messages.create(
+        :from => @twilio_number,
+        :to => phone_number,
+        :body => alert_message
+      )
+      puts message.to
+    end
   end
 
-  def self.send_mail(recipient, sender, message)
+
+  def send_mail(recipient, sender, message)
     # SENDGRID CREDENTIALS
     # Enter in your SendGrid username and 
     # password below.
@@ -47,7 +55,7 @@ class SentMessage < ActiveRecord::Base
     #===========================================#
     client.send(email) 
   end
-  
+
   def self.recent_messages
     
   end
