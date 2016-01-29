@@ -3,6 +3,6 @@ belongs_to :message
 
 validates :intro, presence: true
 validates :body, presence: true
-validates :end, presence: true
+validates :ending, presence: true
 
 end
