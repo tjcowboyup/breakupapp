@@ -27,26 +27,11 @@ post '/post/send' do
   @sent_message.save
   @message_string = @sent_message.message_maker(params[:recipient], params[:signed_by], @sent_message.intro, @sent_message.body, @sent_message.ending)
   
-<<<<<<< HEAD
-  @sent_message.send_sms(params[:recipient_phone], @message_string)
+  @sent_message.send_sms(params[:recipient_phone], @message_string) unless params[:recipient_phone].empty?
+  redirect '/post'
+
+  # Message.send_sms(params[:recipient_phone], @message) 
+  @sent_message.send_mail(params[:recipient_email], params[:signed_by], @message_string)
+
   redirect '/post'
 end
-=======
-  Message.send_sms(params[:recipient_phone], @message) unless params[:recipient_phone].empty?
-  Message.send_mail(params[:recipient_email], params[:signed_by], @message)
-
-  redirect '/post'
-end
-
-
-
-  # puts params[:recipient]
-  # puts params[:recipient_email]
-  # puts params[:recipient_phone]
-  # puts params[:signed_by]
-  # puts params[:checkbox] == "on"
-
-  # puts @intro.inspect
-  # puts @body.inspect
-  # puts @ending.inspect
->>>>>>> 503692b5d2d09f0cbae61886668e26a565a2c859
