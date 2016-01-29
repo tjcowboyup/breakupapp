@@ -1,6 +1,6 @@
 require 'twilio-ruby' 
 require 'sendgrid-ruby'
-
+ 
 
 class Message < ActiveRecord::Base
   has_many :sent_messages
@@ -35,7 +35,6 @@ class Message < ActiveRecord::Base
     )
     puts message.to
   end
-  
   def self.send_mail(recipient, sender, message)
    # SENDGRID CREDENTIALS
  # Enter in your SendGrid username and 
