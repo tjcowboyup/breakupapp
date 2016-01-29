@@ -59,3 +59,4 @@ class Message < ActiveRecord::Base
   #===========================================#
   client.send(email) 
   end
+end
