@@ -1,7 +1,7 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-fixed-t">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Robo Spice</a>
+                <a class="navbar-brand"  href="/">Robo Spice</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,14 +20,11 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>                                    
-                    <li class="page-scroll">
-                        <a href="#contact">Break Up Here</a>
+                    <li>
+                        <a href="#Add_comments">Add Comments</a>
                     </li>
                     <li>
-                        <a href="/add">Add Comments</a>
-                    </li>
-                    <li>
-                        <a href="/testimonials">Testimonials</a>
+                        <a href="#Testimonials">Testimonials</a>
                     </li>
                 </ul>
             </div>
@@ -36,29 +33,9 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/spicy_logo.jpeg" alt="">
-                    <div class="intro-text">
-                        <span class="name">Robo Spice</span>
-                        <!-- <hr class="star-light"> -->
-                        <span class="skills">The Spice that has you running!</span>
-                        <p></p>
-                        <div class="description">
-                          <h7>Can't be bothered to break up with your lover? Let us do it for you! <br> Or <br> Submit responses to help the community get single!</h7>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
 
-  
 
-    <!-- Contact Section -->
+       <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -72,23 +49,23 @@
                     <form method="post" action="/post/send">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Recipient</label>
-                                <input type="text" class="form-control" placeholder="Recipient" name="recipient" required data-validation-required-message="Please enter your recipient name.">
+                                <label>Intro Message</label>
+                                <input type="text" class="form-control" placeholder="Intro Message" name="intro">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Recipient Email Address</label>
-                                <input type="email" class="form-control" placeholder="Recipient Email Address" name="recipient_email" required data-validation-required-message="Please enter your recipients email address.">
-                                <p class="help-block text-danger"></p>
+                                <label>Body Message</label>
+                                <input type="text" class="form-control" placeholder="Body Message" name="body">
+                                <p class="help-block text-danger"></p> 
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Recipient Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" name="recipient_phone" required data-validation-required-message="Please enter your phone number.">
-                                <p class="help-block text-danger"></p>
+                                <label>Ending Message</label>
+                                <input type="text" class="form-control" placeholder="Ending Message" name="ending">
+                                <p class="help-block text-danger"></p> 
                             </div>
                         </div>
                         <div class="row control-group">
@@ -102,7 +79,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                              <label><input type="checkbox" name="checkbox"> Make it spicy!</label>
+                              <label><input type="checkbox" name="checkbox"> Is it spicy?</label>
                               <div class="submit_btn">
                                 <button type="submit" class="btn btn-success btn-lg">Send</button>
                               </div>
@@ -113,6 +90,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="text-center">
