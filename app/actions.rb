@@ -41,7 +41,6 @@ def create_message
 end
 
 post '/post/send' do
-  create_message unless params[:intro].empty? || params[:body].empty? || params[:ending].empty?
   @message_array = Message.generator(params[:checkbox] == "on")
   print @message_array.inspect
 
