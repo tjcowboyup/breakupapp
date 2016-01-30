@@ -4,12 +4,12 @@ get '/' do
 end
 
 get '/post' do
+  @recent_sent = SentMessage.recent_messages
   erb :post
 end
 
 get '/testimonials' do
   @recent_sent = SentMessage.recent_messages
-  puts @recent_sent[0]
   erb :testimonials
 end
 
@@ -19,7 +19,6 @@ end
 
 post '/post/send' do
   @message_array = Message.generator(params[:checkbox] == "on")
-  print @message_array.inspect
 
   @sent_message = SentMessage.new(
     intro:      @message_array[0].id,
@@ -35,14 +34,3 @@ post '/post/send' do
 
   redirect '/post'
 end
-
-  # puts params[:recipient]
-  # puts params[:recipient_email]
-  # puts params[:recipient_phone]
-  # puts params[:signed_by]
-  # puts params[:checkbox] == "on"
-
-  # puts @intro.inspect
-  # puts @body.inspect
-  # puts @ending.inspect
-

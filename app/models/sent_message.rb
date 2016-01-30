@@ -8,13 +8,14 @@ class SentMessage < ActiveRecord::Base
   ACCOUNT_SID = 'AC01b6404ed79574caed356c0e13d652ed' 
   AUTH_TOKEN = 'a19da2c5470eea4fa932ae69c57ebb71'
 
+
   def message_maker(recipient, sender)
     p intro
     intro_string = Message.find(intro).text
     body_string = Message.find(body).text
     ending_string = Message.find(ending).text
 
-    "Dear #{recipient} " + "#{intro_string} " + "#{body_string} " + "#{ending_string} " + "from #{sender}."
+    "Dear #{recipient}, <br>#{intro_string} " + "#{body_string} " + "#{ending_string}" + "<br>From #{sender}."
   end
 
 
