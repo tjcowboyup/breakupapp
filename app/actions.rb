@@ -17,6 +17,29 @@ get '/add' do
   erb :add
 end
 
+post '/add/send' do
+  create_message
+  redirect '/add'
+
+end
+
+def create_message
+  Message.create(
+    text: params[:intro].to_s,
+    spice: params[:checkbox],
+    section: "intro");
+
+   Message.create(
+    text: params[:body].to_s,
+    spice: params[:checkbox],
+    section: "body");
+
+   Message.create(
+    text: params[:ending].to_s,
+    spice: params[:checkbox],
+    section: "ending");
+end
+
 post '/post/send' do
   @message_array = Message.generator(params[:checkbox] == "on")
 
