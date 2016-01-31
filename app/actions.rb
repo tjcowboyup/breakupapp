@@ -1,5 +1,7 @@
+require 'pry'
 # Homepage (Root path)
 get '/' do
+  session["user"] ||= nil
   erb :index
 end
 
@@ -41,6 +43,9 @@ def create_message
 end
 
 post '/post/send' do
+  session[:recipient] = params[:recipient]
+  session[:signed_by] = params[:signed_by]
+
   @message_array = Message.generator(params[:checkbox] == "on")
 
   @sent_message = SentMessage.new(
@@ -55,5 +60,5 @@ post '/post/send' do
   @sent_message.send_sms(params[:recipient_phone], @message_string) 
   @sent_message.send_mail(params[:recipient_email], params[:signed_by], @message_string)
 
-  redirect '/post'
+  redirect '/post', :locals => {:recipient => params[:recipient], :signed_by => params[:signed_by]}
 end
