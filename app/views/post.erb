@@ -47,17 +47,16 @@
                 </div>
             </div>
             <div class="row">
+                
                 <div class="col-lg-8 col-lg-offset-2">
+                    <div class ="container-fluid">
+                        <small>
+                            * Don't worry, your message contains both names you entered. We are so dedicated to your privacy, we don't use cookies to track your information to populate this page.
+                        </small>
+                    </div>
                     <div class="break-up container-fluid">
                         <%= @recent_sent[0].message_maker("Anonymous Recipient","Anonymous Sender") %>
                     </div>
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Confirm</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
