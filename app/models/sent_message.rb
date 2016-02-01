@@ -52,7 +52,7 @@ class SentMessage < ActiveRecord::Base
     m.from_name = sender.to_s
     m.subject = "It's not you..."
     m.text = message.to_s
-    m.html = "<table style=\"border: solid 1px #000; background-color: #65247F; font-family: verdana, tahoma, sans-serif; color: #fff;\"> <tr> <td> <h2>Hello #{recipient.to_s},</h2> <p>#{message.to_s}. </p> <a href=\"http://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">This is a video for you</a> <p>Thank you for reading this test message.</p> Love,<br/> Your friends at Robo Spice</p> <p> <img src=\"http://i.imgur.com/HrwttLT\" /> </td> </tr> </table>"
+    m.html = "<table style=\"border: solid 1px #000; background-color: #65247F; font-family: verdana, tahoma, sans-serif; color: #fff;\"> <tr> <td> <h2>Hello #{recipient.to_s},</h2> <p>#{message.to_s}. </p> <a href=\"http://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">This is a video for you</a> <p>Thank you for reading this message.</p> Love,<br/> #{sender.to_s} <br/> Your friends at Robo Spice</p> <p> <img src=\"http://i.imgur.com/HrwttLT\" /> </td> </tr> </table>"
     end
     # SEND THE EMAIL
     #===========================================#
