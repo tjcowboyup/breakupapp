@@ -39,8 +39,8 @@ class SentMessage < ActiveRecord::Base
     # Enter in your SendGrid username and 
     # password below.
     #===========================================#
-    sg_username = "robospice"
-    sg_password = "breakup2016"
+    sg_username = "#username"
+    sg_password = "#password"
 
     # CREATE THE MAIL OBJECT
     #===========================================#
